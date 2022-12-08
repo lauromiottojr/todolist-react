@@ -81,7 +81,14 @@ function App() {
         {todos.length === 0 && <p>Não há tarefas!</p>}
         {todos.map((todo) => (
           <div className={styles.todo} key={todo.id}>
-            <p>{todo.title}</p>
+            <h3 className={todo.done ? styles.todoDone : ''}>{todo.title}</h3>
+            <p>Duração: {todo.time} horas</p>
+            <div className={styles.actions}>
+              <span>
+                {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
+              </span>
+              <BsTrash />
+            </div>
           </div>
         ))}
       </div>
