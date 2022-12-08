@@ -1,0 +1,17 @@
+.app {
+    width: 40%;
+    margin: 2em auto;
+    background-color: #394049;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.todoHeader {
+    padding: .5em;
+    border-bottom: 1px solid #2c3035;
+    text-align: center;
+}
+
+.todoHeader h1 {
+    margin: 0;
+}
