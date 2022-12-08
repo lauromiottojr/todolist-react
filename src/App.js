@@ -40,11 +40,14 @@ function App() {
         'Content-Type': 'application/json',
       },
     });
+    setTodos((prevState) => [...prevState, todo]);
     setTitle('')
     setTime('')
   }
 
-
+  if (loading) {
+    return (<p>Carregando...</p>)
+  }
 
   return (
     <div className={styles.app}>
