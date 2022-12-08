@@ -12,6 +12,19 @@ function App() {
   const [todos, setTodos] = useState([])
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true)
+      const res = await fetch(API + '/todos')
+        .then((resp) => resp.json())
+        .then((data) => data)
+        .catch((err) => console.log(err));
+      setLoading(false)
+      setTodos(res)
+    }
+    loadData();
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const todo = {
@@ -61,8 +74,13 @@ function App() {
       </div>
 
       <div className={styles.todoList}>
-        <h2>list</h2>
+        <h2>Lista de tarefas:</h2>
         {todos.length === 0 && <p>Não há tarefas!</p>}
+        {todos.map((todo) => (
+          <div className={styles.todo} key={todo.id}>
+            <p>{todo.title}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
