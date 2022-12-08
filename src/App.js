@@ -43,6 +43,13 @@ function App() {
     setTodos((prevState) => [...prevState, todo]);
     setTitle('')
     setTime('')
+  };
+
+  const handleDelete = async (id) => {
+    await fetch(API + '/todos/' + id, {
+      method: "DELETE"
+    });
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   }
 
   if (loading) {
@@ -87,7 +94,7 @@ function App() {
               <span>
                 {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
               </span>
-              <BsTrash />
+              <BsTrash onClick={() => handleDelete(todo.id)} />
             </div>
           </div>
         ))}
