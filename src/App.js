@@ -2,6 +2,9 @@ import styles from './App.module.css';
 
 import { useState, useEffect } from 'react';
 import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons/bs'
+import Header from './components/Header';
+import Container from './components/Container';
+import Inputs from './components/Inputs';
 
 const API = "http://localhost:5000";
 
@@ -70,14 +73,14 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <Header />
 
-      <div className={styles.todoHeader}>
-        <h1>Todo</h1>
-      </div>
-
-      <div className={styles.todoForm}>
-        <h2>Insira sua próxima tarefa:</h2>
+      <Container>
         <form onSubmit={handleSubmit}>
+          {/*
+          <Inputs name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa' />
+          <Inputs name='time' text='Duração:' type='text' placeholder='Tempo estimado (em horas)' />
+          */}
           <div className={styles.formControl}>
             <label htmlFor='title'>O que você irá fazer?</label>
             <input type="text" name="title" placeholder='Titulo da tarefa'
@@ -93,7 +96,7 @@ function App() {
           <input type="submit" value="Criar tarefa" />
 
         </form>
-      </div>
+      </Container>
 
       <div className={styles.todoList}>
         <h2>Lista de tarefas:</h2>

@@ -6,23 +6,6 @@
     color: #fff;
 }
 
-.todoHeader {
-    padding: .5em;
-    border-bottom: 1px solid #2c3035;
-    text-align: center;
-}
-
-.todoHeader h1 {
-    margin: 0;
-}
-
-.todoForm {
-    padding: 1em;
-    margin: 0 2em;
-    border-bottom: 1px solid #2c3035;
-}
-
-.formControl h2,
 .todoList h2 {
     text-align: center;
     margin-top: 0;
