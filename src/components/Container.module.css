@@ -8,3 +8,17 @@
     text-align: center;
     margin-top: 0;
 }
+
+.todoList h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.todoList {
+    padding: 0 1em 2em;
+    margin: 1em 2em;
+}
+
+.todoList h2 {
+    margin-bottom: 0;
+}

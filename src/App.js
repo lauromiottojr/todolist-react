@@ -5,6 +5,7 @@ import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons/bs'
 import Header from './components/Header';
 import Container from './components/Container';
 import Input from './components/Input';
+import TodoCard from './components/TodoCard';
 
 const API = "http://localhost:5000";
 
@@ -79,7 +80,8 @@ function App() {
     <div className={styles.app}>
       <Header />
 
-      <Container>
+      <Container customClass="todoForm">
+        <h2>Insira sua próxima tarefa:</h2>
         <form onSubmit={handleSubmit}>
           <Input name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa'
             handleOnChange={handleChange} value={title ? title : ''} />
@@ -89,11 +91,30 @@ function App() {
         </form>
       </Container>
 
-      <div className={styles.todoList}>
+      <Container customClass="todoList">
         <h2>Lista de tarefas:</h2>
         {todos.length === 0 && <p>Não há tarefas!</p>}
-        {todos.map((todo) => (
-          <div className={styles.todo} key={todo.id}>
+        {todos.length > 0 && todos.map((todo) => (
+          <TodoCard key={todo.id} id={todo.id} done={todo.done} title={todo.title} time={todo.time}
+            handleOnEdit={() => handleEdit(todo)} handleOnDelete={handleDelete} />
+        ))}
+      </Container>
+
+    </div>
+  );
+}
+
+export default App;
+
+/*
+<TodoCard id={todo.id} done={todo.done} title={todo.title} time={todo.time}
+          handleOnEdit={handleEdit(todo)} handleOnDelete={handleDelete(todo.id)}/> 
+*/
+
+
+/**
+ 
+<div className={styles.todo} key={todo.id}>
             <h3 className={todo.done ? styles.todoDone : ''}>{todo.title}</h3>
             <p>Duração: {todo.time} horas</p>
             <div className={styles.actions}>
@@ -103,11 +124,5 @@ function App() {
               <BsTrash onClick={() => handleDelete(todo.id)} />
             </div>
           </div>
-        ))}
-      </div>
 
-    </div>
-  );
-}
-
-export default App;
+ */
