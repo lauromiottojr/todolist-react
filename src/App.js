@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons/bs'
 import Header from './components/Header';
 import Container from './components/Container';
-import Inputs from './components/Inputs';
+import Input from './components/Input';
 
 const API = "http://localhost:5000";
 
@@ -81,26 +81,11 @@ function App() {
 
       <Container>
         <form onSubmit={handleSubmit}>
-          <Inputs name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa'
+          <Input name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa'
             handleOnChange={handleChange} value={title ? title : ''} />
-          <Inputs name='time' text='Duração:' type='text' placeholder='Tempo estimado (em horas)'
+          <Input name='time' text='Duração:' type='text' placeholder='Tempo estimado (em horas)'
             handleOnChange={handleChange} value={time ? time : ''} />
-          {/*
-            <div className={styles.formControl}>
-            <label htmlFor='title'>O que você irá fazer?</label>
-            <input type="text" name="title" placeholder='Titulo da tarefa'
-              onChange={(e) => setTitle(e.target.value)} value={title || ''} required />
-          </div>
-
-          <div className={styles.formControl}>
-            <label htmlFor='time'>Duração:</label>
-            <input type="text" name="time" placeholder='Tempo estimado (em horas)'
-              onChange={(e) => setTime(e.target.value)} value={time || ''} required />
-          </div>
-          */ }
-
-          <input type="submit" value="Criar tarefa" />
-
+          <Input type='submit' value="Criar nova tarefa" />
         </form>
       </Container>
 

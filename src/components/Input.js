@@ -1,6 +1,6 @@
-import styles from "./Inputs.module.css"
+import styles from "./Input.module.css"
 
-function Inputs({ name, text, type, placeholder, handleOnChange, value }) {
+function Input({ name, text, type, placeholder, handleOnChange, value }) {
 
     return (
         <div className={styles.formControl}>
@@ -11,4 +11,4 @@ function Inputs({ name, text, type, placeholder, handleOnChange, value }) {
     )
 }
 
-export default Inputs
+export default Input
