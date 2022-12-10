@@ -71,17 +71,22 @@ function App() {
     return (<p>Carregando...</p>)
   }
 
+  function handleChange(e) {
+    e.target.name === 'title' ? setTitle(e.target.value) : setTime(e.target.value)
+  }
+
   return (
     <div className={styles.app}>
       <Header />
 
       <Container>
         <form onSubmit={handleSubmit}>
+          <Inputs name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa'
+            handleOnChange={handleChange} value={title ? title : ''} />
+          <Inputs name='time' text='Duração:' type='text' placeholder='Tempo estimado (em horas)'
+            handleOnChange={handleChange} value={time ? time : ''} />
           {/*
-          <Inputs name='title' text='O que você irá fazer?' type='text' placeholder='Titulo da tarefa' />
-          <Inputs name='time' text='Duração:' type='text' placeholder='Tempo estimado (em horas)' />
-          */}
-          <div className={styles.formControl}>
+            <div className={styles.formControl}>
             <label htmlFor='title'>O que você irá fazer?</label>
             <input type="text" name="title" placeholder='Titulo da tarefa'
               onChange={(e) => setTitle(e.target.value)} value={title || ''} required />
@@ -92,6 +97,7 @@ function App() {
             <input type="text" name="time" placeholder='Tempo estimado (em horas)'
               onChange={(e) => setTime(e.target.value)} value={time || ''} required />
           </div>
+          */ }
 
           <input type="submit" value="Criar tarefa" />
 
@@ -114,6 +120,7 @@ function App() {
           </div>
         ))}
       </div>
+
     </div>
   );
 }
