@@ -105,24 +105,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<TodoCard id={todo.id} done={todo.done} title={todo.title} time={todo.time}
-          handleOnEdit={handleEdit(todo)} handleOnDelete={handleDelete(todo.id)}/> 
-*/
-
-
-/**
- 
-<div className={styles.todo} key={todo.id}>
-            <h3 className={todo.done ? styles.todoDone : ''}>{todo.title}</h3>
-            <p>Duração: {todo.time} horas</p>
-            <div className={styles.actions}>
-              <span onClick={() => handleEdit(todo)}>
-                {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
-              </span>
-              <BsTrash onClick={() => handleDelete(todo.id)} />
-            </div>
-          </div>
-
- */
